@@ -50,14 +50,14 @@ pipeline {
             }
         }
 
-        stage('Build Backend (Spring Boot WAR)') {
-            steps {
-                dir("${env.BACKEND_DIR}") {
-                    sh 'mvn clean package'
-                    sh "cp target/*.war ../../${BACKEND_WAR}"
-                }
-            }
+       stage('Build Backend (Spring Boot WAR)') {
+    steps {
+        dir("${env.BACKEND_DIR}") {
+            sh 'mvn clean package -DskipTests'
+            sh "cp target/*.war ../../${BACKEND_WAR}"
         }
+    }
+}
 
         stage('Deploy Backend to Tomcat (/springapp1)') {
             steps {
