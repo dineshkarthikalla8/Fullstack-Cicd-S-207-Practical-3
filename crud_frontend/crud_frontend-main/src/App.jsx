@@ -49,7 +49,7 @@ const BASE_URL = 'http://100.26.99.38:9090/springapp1';
  
   const deleteProduct = async (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
-      await axios.delete(`http://localhost:9090/delete/${id}`);
+      await axios.delete(`http://100.26.99.38:9090/springapp1/delete/${id}`);
       alert('Delete successful');
       fetchProducts();
     }
